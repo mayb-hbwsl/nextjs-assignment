@@ -1,11 +1,11 @@
-import React from 'react'
-import ProductCard from '@/app/components/ProductCard';
+import React from "react";
+import ProductCard from "@/app/components/ProductCard";
 
 const AdminProductsPage = async () => {
-  const res = await fetch('http://localhost:3000/api/products');
+  const res = await fetch("http://localhost:3000/api/products");
   const products: any[] = await res.json();
 
-  console.log('Admin Products:', products); // Debugging log
+  console.log("Admin Products:", products); // Debugging log
   console.log(res.status); // Check the response status
 
   return (

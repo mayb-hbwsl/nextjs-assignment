@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Humming Store",
-  description: "A store developed by an intern at HummingBird Web Solutions"  ,
+  description: "A store developed by an intern at HummingBird Web Solutions",
 };
 
 export default function RootLayout({
@@ -26,11 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body 
-      >
-        <Header/>
+      <body>
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

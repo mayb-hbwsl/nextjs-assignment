@@ -9,21 +9,35 @@ const AddProduct = () => {
   const [productImage, setProductImage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSuccess(true);
     
-    // Simulate API call
-    console.log({ productName, productPrice, productDescription, category, productImage });
+    const res = await fetch('/api/products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: productName,
+        price: productPrice,
+        description: productDescription,
+        category,
+        image: productImage,
+      }),
+    });
+
+    if(res.ok){
+      setIsSuccess(true);
+    setProductName('');
+    setProductPrice(0);
+    setProductDescription('');
+    setCategory('');
+    setProductImage('');
 
     setTimeout(() => {
-      setProductName('');
-      setProductPrice(0);
-      setProductDescription('');
-      setCategory('');
-      setProductImage('');
-      setIsSuccess(false);
-    }, 2000);
+      setIsSuccess(false);    
+    }, 3000);
+    }
   };
 
   return (

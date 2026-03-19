@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
       <div className="relative max-w-6xl w-full bg-slate-900/40 backdrop-blur-2xl border border-slate-800/60 rounded-[3rem] overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.5)] flex flex-col md:flex-row">
         
         {/* LEFT SIDE: Image Showcase */}
-        <div className="md:w-5/12 bg-white p-10 flex items-center justify-center relative group min-h-[400px]">
+        <div className="md:w-5/12 bg-white p-10 flex items-center justify-center relative group min-h-100">
           <Link href="/products" className="absolute top-8 left-8 z-20 bg-slate-900 text-white p-3 rounded-2xl hover:bg-blue-600 transition-all shadow-xl active:scale-90">
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </Link>
@@ -101,7 +101,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
               </p>
             </div>
             
-            <button className="w-full sm:w-auto bg-white text-slate-900 hover:bg-blue-600 hover:text-white px-12 py-5 rounded-[1.5rem] font-black text-sm uppercase tracking-widest transition-all duration-300 shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-blue-500/40 active:scale-95 flex items-center justify-center gap-3">
+            <button className="w-full sm:w-auto bg-white text-slate-900 hover:bg-blue-600 hover:text-white px-12 py-5 rounded-3xl font-black text-sm uppercase tracking-widest transition-all duration-300 shadow-[0_10px_40px_rgba(255,255,255,0.1)] hover:shadow-blue-500/40 active:scale-95 flex items-center justify-center gap-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
               Add to Bag
             </button>

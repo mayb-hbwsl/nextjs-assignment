@@ -1,4 +1,5 @@
 "use client";
+import { title } from 'process';
 import React, { useState } from 'react';
 
 const AddProduct = () => {
@@ -18,11 +19,13 @@ const AddProduct = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: productName,
+        id: Date.now(), // Simple unique ID based on timestamp
+        title: productName,
         price: productPrice,
         description: productDescription,
-        category,
+        category: category,
         image: productImage,
+        rating: { rate: 0, count: 0 }
       }),
     });
 

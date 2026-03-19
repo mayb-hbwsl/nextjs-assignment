@@ -114,4 +114,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
 // ... keep your generateStaticParams here ...
 
+export async function generateStaticParams() { 
+  const res = await fetch('https://fakestoreapi.com/products'); 
+  const data = await res.json(); 
+  return data.map((item: any) => ({ id: item.id.toString(), })); 
+}
+
+
 export default Page

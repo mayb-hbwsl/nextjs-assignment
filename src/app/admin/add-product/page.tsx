@@ -39,7 +39,7 @@ const AddProduct = () => {
 
     setTimeout(() => {
       setIsSuccess(false);    
-    }, 3000);
+    }, 2000);
     }
   };
 

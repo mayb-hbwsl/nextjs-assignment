@@ -120,9 +120,11 @@ const CartPage = () => {
               </div>
             </div>
 
-            <button className="w-full bg-white text-slate-900 py-6 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] hover:bg-slate-200 transition-all shadow-[0_20px_40px_rgba(255,255,255,0.1)] cursor-pointer active:scale-95">
-              Checkout
-            </button>
+            <Link href="/checkout">
+              <button className="w-full bg-white text-slate-900 py-6 rounded-2xl font-black uppercase tracking-[0.3em] text-[10px] hover:bg-slate-200 transition-all shadow-[0_20px_40px_rgba(255,255,255,0.1)] cursor-pointer active:scale-95">
+                Checkout
+              </button>
+            </Link>
             
             <div className="mt-8 flex items-center justify-center gap-2 opacity-30">
               <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />

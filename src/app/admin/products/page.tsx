@@ -10,7 +10,7 @@ const AdminProductsPage = async () => {
 
   return (
     <main className="min-h-screen p-8 md:p-16">
-      <h1 className="text-4xl font-black text-white mb-12 tracking-tighter">
+      <h1 className="text-4xl font-black text-slate-900 mb-12 tracking-tighter">
         Admin Products
       </h1>
 

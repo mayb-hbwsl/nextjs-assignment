@@ -1,6 +1,7 @@
 "use client";
 import { title } from "process";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
@@ -121,6 +122,12 @@ const AddProduct = () => {
         >
           {isSuccess ? "✓ Added" : "List Product"}
         </button>
+
+        <Link href="/admin/products" className="w-full">
+          <button className="w-full py-4 rounded-2xl font-bold text-sm uppercase tracking-widest transition-all duration-300 shadow-lg bg-slate-900 text-white hover:bg-black hover:scale-[1.01] cursor-pointer active:scale-95">
+            See Products
+          </button>
+        </Link>
       </form>
     </div>
   );

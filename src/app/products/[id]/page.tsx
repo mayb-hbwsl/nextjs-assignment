@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import NotFound from "@/app/not-found";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
 
-  // Your logic: Fetching full lists to find the product regardless of source
+  // Fetching full lists to find the product regardless of source
   const [res1, res2] = await Promise.all([
     fetch("https://fakestoreapi.com/products", { cache: "no-store" }),
     fetch("http://localhost:3000/api/products", { cache: "no-store" }),
@@ -19,22 +20,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#020617] text-white">
-        <div className="text-center p-10 bg-slate-900/50 rounded-3xl border border-slate-800 backdrop-blur-xl">
-          <h1 className="text-5xl font-black mb-4 tracking-tighter text-blue-500">
-            404
-          </h1>
-          <p className="text-slate-400 mb-8 font-medium">
-            This product has left the building.
-          </p>
-          <Link
-            href="/products"
-            className="px-8 py-3 bg-white text-slate-900 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition-all"
-          >
-            Return to Shop
-          </Link>
-        </div>
-      </div>
+      NotFound()
     );
   }
 

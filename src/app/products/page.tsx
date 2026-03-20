@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import ProductFilters from "../components/ProductFilter";
+import EmptyState from "../components/EmptyState";
+
 
 const ProductPage = () => {
   const [allProducts, setAllProducts] = useState<any[]>([]);
@@ -22,9 +24,9 @@ const ProductPage = () => {
         
         setAllProducts(combined);
         setFilteredProducts(combined);
-        setLoading(false);
       } catch (error) {
         console.error("Fetch error:", error);
+      } finally {
         setLoading(false);
       }
     };
@@ -47,7 +49,16 @@ const ProductPage = () => {
     setFilteredProducts(filtered);
   };
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center text-slate-900 font-black tracking-widest animate-pulse">HUMMING...</div>;
+  // Local loading state (shows the pulse text)
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h2 className="text-xs font-black uppercase tracking-[0.5em] text-slate-900 animate-pulse">
+          Humming...
+        </h2>
+      </div>
+    );
+  }
 
   return (
     <main className="min-h-screen p-8 md:p-16 max-w-7xl mx-auto">
@@ -58,20 +69,18 @@ const ProductPage = () => {
         <p className="text-slate-600 font-medium italic opacity-70">Resonating with your lifestyle.</p>
       </header>
 
-      {/* Filters */}
+      {/* Filters UI */}
       <ProductFilters onFilter={handleFilter} />
 
-      {/* Responsive Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-        {filteredProducts.map((item) => (
-          <ProductCard key={item.id} product={item} />
-        ))}
-      </div>
-
-      {filteredProducts.length === 0 && (
-        <div className="text-center py-20">
-          <p className="text-slate-300 font-bold tracking-widest uppercase text-xs">No items resonate with your search.</p>
+      {/* Logic: If products exist, show grid. If not, show your EmptyState */}
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          {filteredProducts.map((item) => (
+            <ProductCard key={item.id} product={item} />
+          ))}
         </div>
+      ) : (
+        <EmptyState />
       )}
     </main>
   );

@@ -29,14 +29,14 @@ const ProductCard = ({ product }: { product: any }) => {
           <span className="bg-slate-900 text-white text-[10px] font-black px-2 py-0.5 rounded flex items-center gap-1 uppercase tracking-tighter">
             {product.rating.rate} ★
           </span>
-          <span className="text-slate-500 text-xs font-medium">
+          <span className="text-slate-700 text-xs font-medium">
             ({product.rating.count} reviews)
           </span>
         </div>
 
         <div className="mt-auto flex items-center justify-between pt-2">
           <div>
-            <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider -mb-1">
+            <p className="text-[10px] text-slate-800 font-bold uppercase tracking-wider -mb-1">
               Price
             </p>
             <p className="text-xl font-black text-slate-900 tracking-tighter">
